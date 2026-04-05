@@ -5,231 +5,190 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register — 10x Vibecode Hackathon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-:root {
-  --white: #0f0e1a;
-  --off: #13111f;
-  --surface: #1a1730;
-  --border: #2a2645;
-  --muted: #7874a0;
-  --body: #c4c0e0;
-  --heading: #f0eeff;
-  --violet: #8b5cf6;
-  --accent: #a78bfa;
-  --glow: #c4b5fd;
-  --pale: #1e1a38;
-  --soft: #16132a;
-  --green: #10b981;
-  --grad-main: linear-gradient(135deg, #6d28d9, #a78bfa);
-  --grad-warm: linear-gradient(135deg, #7c3aed, #ec4899);
-  --grad-cool: linear-gradient(135deg, #4f1fcf, #06b6d4);
-  --grad-text: linear-gradient(135deg, #a78bfa, #e879f9);
-  --radius: 14px;
-}
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--white);
-  color: var(--body);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background-image: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(109,40,217,0.18) 0%, transparent 60%);
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-
-/* ── NAV ── */
-.reg-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(13,11,26,0.88);
-  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(139,92,246,0.18);
-  padding: 0 48px; height: 64px;
-  display: flex; align-items: center; justify-content: space-between;
-  box-shadow: 0 4px 32px rgba(109,40,217,0.3);
-}
-.nav-logo {
-  display: flex; align-items: center; gap: 10px;
-  font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px;
-  color: var(--heading); text-decoration: none;
-}
-.nav-logo-badge {
-  width: 34px; height: 34px; border-radius: 8px;
-  background: var(--grad-main);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: white; letter-spacing: 1px;
-  box-shadow: 0 4px 14px rgba(109,40,217,0.35);
-}
-.nav-logo span { background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.btn-back {
-  font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--body); text-decoration: none; padding: 9px 18px; border-radius: 8px;
-  border: 1px solid var(--border); background: rgba(255,255,255,0.04); transition: all 0.2s;
-}
-.btn-back:hover { border-color: var(--accent); color: var(--accent); background: var(--soft); }
-
-/* ── PAGE LAYOUT ── */
+/* Register page overrides */
 .page-wrap {
   max-width: 1200px; margin: 0 auto;
-  padding: 120px 40px 80px;
+  padding: 120px 48px 80px;
   display: grid; grid-template-columns: 1fr 1.35fr;
   gap: 80px; align-items: start;
   min-height: 100vh;
-  position: relative;
-}
-.page-wrap::before {
-  content: ''; position: fixed; top: -150px; right: -150px; width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(109,40,217,0.18), transparent 70%);
-  pointer-events: none;
-}
-.page-wrap::after {
-  content: ''; position: fixed; bottom: -100px; left: -100px; width: 400px; height: 400px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(192,132,252,0.07), transparent 70%);
-  pointer-events: none;
 }
 
-/* ── LEFT COLUMN ── */
 .reg-left { position: relative; z-index: 1; }
-.section-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--violet); margin-bottom: 16px;
-}
-.section-tag::before { content:''; width: 20px; height: 2px; background: var(--grad-main); border-radius: 2px; }
-.section-heading {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 5.5vw, 76px);
-  line-height: 0.95; letter-spacing: 1px; color: var(--heading); margin-bottom: 18px;
-}
-.section-heading .g {
-  background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.reg-desc { font-size: 16px; color: var(--muted); line-height: 1.8; margin-bottom: 32px; }
+.reg-desc { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-bottom: 32px; }
 
 .detail-list { display: flex; flex-direction: column; gap: 16px; }
 .detail-item { display: flex; align-items: flex-start; gap: 14px; }
 .d-icon {
   width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
-  background: var(--grad-main);
+  background: var(--accent-green);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(109,40,217,0.28);
 }
-.d-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
-.d-value { font-size: 15px; font-weight: 500; color: var(--heading); }
+.d-label { font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 3px; }
+.d-value { font-size: 15px; font-weight: 600; color: var(--text); }
 
-/* ── FORM ── */
 .form-card {
-  background: linear-gradient(145deg, rgba(22,19,42,0.98), rgba(14,12,26,0.99)); border: 1px solid rgba(139,92,246,0.22); border-radius: 18px;
-  padding: 42px; box-shadow: 0 16px 56px rgba(109,40,217,0.25), inset 0 1px 0 rgba(167,139,250,0.08);
-  position: relative; overflow: hidden; z-index: 1;
+  background: var(--bg-card);
+  border: none;
+  border-radius: 18px;
+  padding: 42px;
+  position: relative; overflow: hidden;
 }
-.form-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, #6d28d9, #a78bfa, #6d28d9);
-  background-size: 200%; animation: shimmer 4s linear infinite;
+.form-card::before { display: none; }
+.form-h {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px; font-weight: 700;
+  color: var(--text); margin-bottom: 4px;
 }
-@keyframes shimmer { 0%{background-position:0%} 100%{background-position:200%} }
-.form-h { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; color: var(--heading); margin-bottom: 4px; }
-.form-sh { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 30px; text-transform: uppercase; }
+.form-sh {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+  color: var(--text-muted); margin-bottom: 30px;
+}
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-group { margin-bottom: 16px; }
-label { display: block; font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--body); margin-bottom: 7px; }
-label .req { color: var(--accent); }
-input, select, textarea {
-  width: 100%; background: rgba(255,255,255,0.04); border: 1.5px solid rgba(139,92,246,0.2);
-  color: var(--heading); font-family: 'DM Sans', sans-serif; font-size: 14px;
-  padding: 11px 14px; border-radius: 9px; outline: none; transition: all 0.2s; -webkit-appearance: none; appearance: none;
+label {
+  display: block; font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 2px;
+  color: var(--text-muted); margin-bottom: 7px; text-transform: uppercase;
 }
-input::placeholder, textarea::placeholder { color: var(--muted); font-size: 12px; }
-input:focus, select:focus, textarea:focus { border-color: var(--accent); background: rgba(139,92,246,0.06); box-shadow: 0 0 0 4px rgba(109,40,217,0.15); }
-textarea { resize: vertical; min-height: 68px; line-height: 1.6; }
+label .req { color: var(--accent-green); }
+input, select, textarea {
+  width: 100%; background: #ffffff;
+  border: 1.5px solid var(--border);
+  color: #0a0a0a; font-family: 'Inter', sans-serif; font-size: 14px;
+  padding: 11px 14px; border-radius: 9px; outline: none;
+  transition: all 0.2s; -webkit-appearance: none; appearance: none;
+  color-scheme: light;
+}
+input::placeholder, textarea::placeholder { color: var(--text-dim); font-size: 13px; }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent-green);
+  background: rgba(45,212,168,0.04);
+  box-shadow: 0 0 0 4px rgba(45,212,168,0.1);
+}
+textarea { resize: vertical; min-height: 68px; line-height: 1.6; background: #ffffff !important; }
 select { cursor: pointer; }
-select option { background: #1a1730; color: var(--heading); }
+select option { background: var(--bg-card); color: var(--text); }
 input.err, select.err { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.08); }
 
 .fmt-toggle { display: flex; border: 1.5px solid var(--border); border-radius: 9px; overflow: hidden; }
 .fmt-btn {
   flex: 1; padding: 10px 8px; text-align: center;
-  font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--muted); cursor: pointer; border-right: 1px solid rgba(139,92,246,0.15); background: rgba(255,255,255,0.03); transition: all 0.2s; user-select: none;
+  font-family: 'Space Grotesk', sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-muted); cursor: pointer;
+  border-right: 1px solid var(--border);
+  background: rgba(255,255,255,0.02); transition: all 0.2s; user-select: none;
 }
 .fmt-btn:last-child { border-right: none; }
-.fmt-btn:hover { background: rgba(139,92,246,0.1); color: var(--accent); }
-.fmt-btn.on { background: var(--grad-main); color: white; }
+.fmt-btn:hover { background: rgba(0,0,0,0.06); color: var(--accent-green); }
+.fmt-btn.on { background: var(--accent-green); color: #ffffff; }
 
-.divider { border: none; border-top: 1px solid rgba(139,92,246,0.15); margin: 18px 0; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
 .team-sec { display: none; }
 .team-sec.show { display: block; }
-.team-ttl { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--violet); margin-bottom: 14px; }
+.team-ttl {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; font-weight: 600; letter-spacing: 3px;
+  color: var(--accent-green); margin-bottom: 14px;
+}
 
 .submit-btn {
   width: 100%; padding: 16px;
-  background: var(--grad-main);
-  color: white; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  border: none; border-radius: 10px; cursor: pointer; transition: all 0.2s;
-  box-shadow: 0 6px 20px rgba(109,40,217,0.35); margin-top: 4px;
+  background: var(--accent-green); color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  border: none; border-radius: 10px; cursor: pointer;
+  transition: all 0.2s; margin-top: 4px;
 }
-.submit-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(109,40,217,0.45); }
+.submit-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
 .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.form-note { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1px; color: var(--muted); text-align: center; margin-top: 14px; line-height: 1.7; text-transform: uppercase; }
+.form-note {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px; letter-spacing: 0.5px;
+  color: var(--text-dim); text-align: center;
+  margin-top: 14px; line-height: 1.7;
+}
 
 .success-wrap { display: none; text-align: center; padding: 52px 24px; }
 .success-wrap.show { display: block; }
 .success-icon-box {
   width: 76px; height: 76px; border-radius: 50%; margin: 0 auto 20px;
-  background: var(--grad-main);
-  display: flex; align-items: center; justify-content: center; font-size: 32px; color: white;
-  box-shadow: 0 8px 28px rgba(109,40,217,0.35);
+  background: var(--accent-green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px; color: #ffffff;
 }
-.success-title { font-family: 'Bebas Neue', sans-serif; font-size: 44px; letter-spacing: 2px; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 14px; }
-.success-msg { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 360px; margin: 0 auto; }
+.success-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px; font-weight: 700;
+  color: var(--text); margin-bottom: 14px;
+}
+.success-msg { font-size: 15px; color: var(--text-muted); line-height: 1.75; max-width: 360px; margin: 0 auto; }
 .back-home-btn {
   display: inline-block; margin-top: 28px;
-  font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-  color: white; text-decoration: none; padding: 14px 32px; border-radius: 10px;
-  background: var(--grad-main); box-shadow: 0 6px 24px rgba(109,40,217,0.38); transition: all 0.2s;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  color: #ffffff; text-decoration: none;
+  padding: 14px 32px; border-radius: 10px;
+  background: var(--accent-green);
+  transition: all 0.2s;
 }
-.back-home-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(109,40,217,0.48); }
+.back-home-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
 
-.error-msg { display: none; text-align: center; margin-top: 12px; font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1px; color: #ef4444; text-transform: uppercase; }
+.error-msg {
+  display: none; text-align: center; margin-top: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 1px;
+  color: #ef4444;
+}
 .error-msg.show { display: block; }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .reg-nav { padding: 0 20px; }
-  .page-wrap { grid-template-columns: 1fr; gap: 40px; padding: 100px 24px 60px; }
+  .page-wrap { grid-template-columns: 1fr; gap: 24px; padding: 88px 16px 40px; }
   .form-row { grid-template-columns: 1fr; }
+  .form-card { padding: 24px 18px; }
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="reg-nav">
-  <a href="10x-vibecode-hackathon (1).html" class="nav-logo">
-    <div class="nav-logo-badge">V</div>
-    10x <span>Vibecode</span>
+<nav id="nav" class="scrolled">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <circle cx="14" cy="14" r="14" fill="#0a0a0a"/>
+        <path d="M8 14a6 6 0 0 1 12 0" fill="#ffffff"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span>10x Vibecode</span>
+      <span>Design Hack</span>
+    </div>
   </a>
-  <a href="10x-vibecode-hackathon (1).html" class="btn-back">← Back to Home</a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-social" aria-label="Back to Home" style="width:auto;padding:0 16px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;gap:6px;">
+      ← HOME
+    </a>
+  </div>
 </nav>
 
 <div class="page-wrap">
   <!-- LEFT INFO COLUMN -->
   <div class="reg-left">
-    <div class="section-tag">Registration</div>
-    <h1 class="section-heading">Secure<br>Your <span class="g">Spot</span></h1>
+    <span class="section-tag">REGISTRATION</span>
+    <h1 class="section-heading">Secure<br>Your <span class="accent-text">Spot</span></h1>
     <p class="reg-desc">Free entry. Limited to 50 participants. Solo or teams of 2–3 welcome. Register now — confirmed date and venue sent directly to your inbox.</p>
     <div class="detail-list">
-      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="d-label">Location</div><div class="d-value">Accra, Ghana — Venue TBD</div></div></div>
-      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><div class="d-label">Date</div><div class="d-value">To Be Announced — 2026</div></div></div>
-      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg></div><div><div class="d-label">Entry Fee</div><div class="d-value">Completely Free</div></div></div>
-      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div class="d-label">Format</div><div class="d-value">Solo or Teams of 2–3</div></div></div>
-      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="d-label">Duration</div><div class="d-value">8–12 Hours (One Day)</div></div></div>
+      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="d-label">LOCATION</div><div class="d-value">Accra, Ghana — Venue TBD</div></div></div>
+      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg></div><div><div class="d-label">ENTRY FEE</div><div class="d-value">Completely Free</div></div></div>
+      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div><div class="d-label">FORMAT</div><div class="d-value">Solo or Teams of 2–3</div></div></div>
+      <div class="detail-item"><div class="d-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="d-label">DURATION</div><div class="d-value">8–12 Hours (One Day)</div></div></div>
     </div>
   </div>
 
@@ -238,9 +197,8 @@ input.err, select.err { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68
     <div class="form-card">
       <div id="reg-form">
         <div class="form-h">Register Now</div>
-        <div class="form-sh">Free entry · Limited to 50 spots · Date details via email</div>
+        <div class="form-sh">FREE ENTRY · LIMITED TO 50 SPOTS</div>
         <form id="registration-form" action="https://formsubmit.co/sonnetechgh@gmail.com" method="POST">
-          <!-- FormSubmit config -->
           <input type="hidden" name="_subject" value="New 10x Vibecode Hackathon Registration">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -271,14 +229,14 @@ input.err, select.err { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68
           </div>
           <div class="team-sec" id="tsec">
             <hr class="divider">
-            <div class="team-ttl">Team Details</div>
+            <div class="team-ttl">TEAM DETAILS</div>
             <div class="form-group"><label>Team Name <span class="req">*</span></label><input type="text" name="Team Name" id="tn" placeholder="e.g. PromptPunks"></div>
             <div class="form-group"><label>Teammate 2 — Email</label><input type="email" name="Teammate 2 Email" id="t2e" placeholder="teammate@email.com"></div>
             <div class="form-group" id="t3w" style="display:none"><label>Teammate 3 — Email</label><input type="email" name="Teammate 3 Email" id="t3e" placeholder="teammate@email.com"></div>
           </div>
           <hr class="divider">
           <div class="form-group"><label>AI Tools You Currently Use</label><textarea name="AI Tools" id="tools" placeholder="e.g. ChatGPT, Cursor, Claude, Copilot..." rows="2"></textarea></div>
-          <div class="form-group"><label>What do you plan to build? <span style="font-weight:400;color:var(--muted);text-transform:none;letter-spacing:0">(optional)</span></label><textarea name="Project Idea" id="idea" placeholder="A brief idea or problem space..." rows="2"></textarea></div>
+          <div class="form-group"><label>What do you plan to build? <span style="font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0">(optional)</span></label><textarea name="Project Idea" id="idea" placeholder="A brief idea or problem space..." rows="2"></textarea></div>
           <div class="form-group"><label>How did you hear about us?</label>
             <select name="Source" id="src">
               <option value="" disabled selected>Select one</option>
@@ -286,7 +244,7 @@ input.err, select.err { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68
               <option>Friend / Colleague</option><option>University / Campus</option><option>Other</option>
             </select>
           </div>
-          <button type="submit" class="submit-btn" id="submit-btn">Submit Registration →</button>
+          <button type="submit" class="submit-btn" id="submit-btn">SUBMIT REGISTRATION →</button>
           <div class="error-msg" id="error-msg">Please fill in all required fields.</div>
           <p class="form-note">By registering you agree to the event rules and AI-only code policy.<br>Date & venue will be confirmed via email.</p>
         </form>
@@ -294,46 +252,37 @@ input.err, select.err { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68
       <div class="success-wrap" id="succ">
         <div class="success-icon-box">✓</div>
         <div class="success-title">You're Registered!</div>
-        <p class="success-msg">We've received your registration. You'll get an email with the confirmed date, venue, and official rules pack as soon as details are locked in. Get ready to vibe. 🚀</p>
-        <a href="10x-vibecode-hackathon (1).html" class="back-home-btn">← Back to Home</a>
+        <p class="success-msg">We've received your registration. You'll get an email with the confirmed date, venue, and official rules pack. Get ready to vibe.</p>
+        <a href="index.html" class="back-home-btn">← BACK TO HOME</a>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-// Set the _next redirect URL dynamically to the success state
 document.getElementById('next-url').value = window.location.href.split('?')[0] + '?success=1';
-
-// Check if redirected back after success
 if (window.location.search.includes('success=1')) {
   document.getElementById('reg-form').style.display = 'none';
   document.getElementById('succ').classList.add('show');
 }
-
-// Format toggle
 function setF(f) {
-  document.querySelectorAll('.fmt-btn').forEach(b => b.classList.remove('on'));
+  document.querySelectorAll('.fmt-btn').forEach(function(b) { b.classList.remove('on'); });
   document.getElementById('f-'+f).classList.add('on');
   document.getElementById('tsec').classList.toggle('show', f !== 'solo');
   document.getElementById('t3w').style.display = f === 't3' ? 'block' : 'none';
-  const labels = { solo: 'Solo', t2: 'Team of 2', t3: 'Team of 3' };
+  var labels = { solo: 'Solo', t2: 'Team of 2', t3: 'Team of 3' };
   document.getElementById('format-val').value = labels[f];
 }
-
-// Form validation before submit
 document.getElementById('registration-form').addEventListener('submit', function(e) {
-  const fn = document.getElementById('fn').value.trim();
-  const ln = document.getElementById('ln').value.trim();
-  const em = document.getElementById('em').value.trim();
-  const tr = document.getElementById('tr').value;
-
-  let ok = true;
-  [[fn,'fn'],[ln,'ln'],[em,'em'],[tr,'tr']].forEach(([v,id]) => {
-    const el = document.getElementById(id);
-    if (!v) { el.classList.add('err'); ok = false; } else { el.classList.remove('err'); }
+  var fn = document.getElementById('fn').value.trim();
+  var ln = document.getElementById('ln').value.trim();
+  var em = document.getElementById('em').value.trim();
+  var tr = document.getElementById('tr').value;
+  var ok = true;
+  [[fn,'fn'],[ln,'ln'],[em,'em'],[tr,'tr']].forEach(function(pair) {
+    var el = document.getElementById(pair[1]);
+    if (!pair[0]) { el.classList.add('err'); ok = false; } else { el.classList.remove('err'); }
   });
-
   if (!ok) {
     e.preventDefault();
     document.getElementById('error-msg').classList.add('show');
